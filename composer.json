@@ -9,11 +9,18 @@
             "name": "Artur Lasota",
             "email": "lasota.artur@gmail.com",
             "homepage": "https://github.com/lasotaartur"
+        },
+        {
+            "name": "Andrew Plank",
+            "email": "apl@fdm.dk",
+            "homepage": "https://github.com/theplankmeister"
         }
     ],
     "license": "MIT",
+    "require-dev": {
+        "phpspec/phpspec": "*"
+    },
     "require": {
-        "phpspec/phpspec": "*",
         "silex/silex": "*"
     },
     "autoload": {

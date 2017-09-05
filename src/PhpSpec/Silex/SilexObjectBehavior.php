@@ -2,11 +2,11 @@
 namespace PhpSpec\Silex;
 
 use PhpSpec\ObjectBehavior;
-use PhpSpec\Wrapper\Subject;
 use Silex\Application;
 
 /**
  * @author Artur Lasota <lasota.artur@gmail.com>
+ * @author Andrew Plank <apl@fdm.dk>
  */
 class SilexObjectBehavior extends ObjectBehavior
 {

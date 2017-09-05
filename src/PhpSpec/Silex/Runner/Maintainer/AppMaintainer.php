@@ -3,16 +3,18 @@ namespace PhpSpec\Silex\Runner\Maintainer;
 
 use PhpSpec\Loader\Node\ExampleNode;
 use PhpSpec\Runner\CollaboratorManager;
-use PhpSpec\Runner\MatcherManager;
+use PhpSpec\Runner\Maintainer\Maintainer;
 use PhpSpec\Runner\Maintainer\MaintainerInterface;
+use PhpSpec\Runner\MatcherManager;
+use PhpSpec\Specification;
 use PhpSpec\SpecificationInterface;
-use PhpSpec\Laravel\Util\Laravel;
 use Silex\Application;
 
 /**
  * @author Artur Lasota <lasota.artur@gmail.com>
+ * @author Andrew Plank <apl@fdm.dk>
  */
-class AppMaintainer implements MaintainerInterface
+class AppMaintainer implements Maintainer
 {
     /**
      * @var Application
@@ -31,7 +33,7 @@ class AppMaintainer implements MaintainerInterface
      * @param ExampleNode $example
      * @return bool
      */
-    public function supports(ExampleNode $example)
+    public function supports(ExampleNode $example) : bool
     {
 
         $specClassName = $example->getSpecification()->getClassReflection()->getName();
@@ -41,7 +43,7 @@ class AppMaintainer implements MaintainerInterface
     /**
      * {@inheritdoc}
      */
-    public function prepare(ExampleNode $example, SpecificationInterface $context,
+    public function prepare(ExampleNode $example, Specification $context,
                             MatcherManager $matchers, CollaboratorManager $collaborators)
     {
         $reflection =
@@ -56,7 +58,7 @@ class AppMaintainer implements MaintainerInterface
     /**
      * {@inheritdoc}
      */
-    public function teardown(ExampleNode $example, SpecificationInterface $context,
+    public function teardown(ExampleNode $example, Specification $context,
                              MatcherManager $matchers, CollaboratorManager $collaborators)
     {
     }

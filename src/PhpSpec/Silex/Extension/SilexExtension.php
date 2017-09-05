@@ -2,22 +2,23 @@
 namespace PhpSpec\Silex\Extension;
 
 use InvalidArgumentException;
-use PhpSpec\Extension\ExtensionInterface;
+use PhpSpec\Extension;
 use PhpSpec\ServiceContainer;
 use PhpSpec\Silex\Runner\Maintainer\AppMaintainer;
 use Silex\Application;
 
 /**
  * @author Artur Lasota <lasota.artur@gmail.com>
+ * @author Andrew Plank <apl@fdm.dk>
  */
-class SilexExtension implements ExtensionInterface
+class SilexExtension implements Extension
 {
     /**
      * @param ServiceContainer $container
      */
-    public function load(ServiceContainer $container)
+    public function load(ServiceContainer $container, array $params)
     {
-        $container->setShared(
+        $container->define(
             'silex.app',
             function ($c) {
                 $config = $c->getParam('silex_extension');
@@ -34,14 +35,14 @@ class SilexExtension implements ExtensionInterface
             }
         );
 
-        $container->setShared(
+        $container->define(
             'runner.maintainers.silex_app',
             function ($c) {
                 return new AppMaintainer(
                     $c->get('silex.app')
                 );
             }
-        );
+        , ['runner.maintainers']);
     }
 
     /**

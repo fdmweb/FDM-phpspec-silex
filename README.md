@@ -5,21 +5,15 @@ applications.
 
 ## Installation
 
-Add this to your `composer.json`:
-
-```json
-{
-    "require": {
-        "lasotaartur/phpspec-silex": "dev-master"
-    }
-}
+```bash
+$ composer require --dev fdmweb/phpspec-silex
 ```
 
 then add this to your `phpspec.yml`:
 
 ```yaml
 extensions:
-    - PhpSpec\Silex\Extension\SilexExtension
+    PhpSpec\Silex\Extension\SilexExtension: ~
 ```
 
 ## Why this extension?
@@ -29,18 +23,15 @@ your phpspec tests.
 
 ## Configuration
 
-in your `phpspec.yml`.
-
-### App bootstrap path
-
 By default, the extension will bootstrap your app by looking for `app/bootstrap.php`. 
 
 You can manually specify the path to the bootstrap file, like so:
 
 ```yaml
-laravel_extension:
+silex_extension:
     bootstrap_path: "/your/path/bootstrap.php"
 ```
+Note: the given path is appended to the project root path, so should be preceded with a slash.
 
 **Example of bootstrap.php**
 
