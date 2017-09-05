@@ -1,5 +1,5 @@
 {
-    "name": "lasotaartur/phpspec-silex",
+    "name": "fdmweb/FDM-phpspec-silex",
     "description": "Test your Silex applications with PhpSpec",
     "keywords": ["silex", "phpspec", "testing", "test"],
     "homepage": "https://github.com/lasotaartur/phpspec-silex",
